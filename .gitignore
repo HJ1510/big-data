@@ -3,4 +3,6 @@
 **/cats_and_dogs
 **/data-in
 **/data-out
+**/test
+**/train
 *.jpg

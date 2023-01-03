@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글목록</title>
+    <style>
+        .rm_underline {
+            text-decoration: none;
+        }
+        .new_bulletin {
+            text-align: center;
+            font-size: 30px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" border="1" style="width:80%">
+        <thead>
+            <tr align="center" bgcolor="yellow">
+                <th>글번호</th>
+                <th>작성자</th>
+                <th>제목</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+    {% if bulletin_list %} <!-- template language -->
+    <tbody>
+        {% for bulletin in bulletin_list %}
+            <tr align="center">
+                <td style="width:30px">{{bulletin.id}}</td>
+                <td style="width:50px">{{bulletin.name}}</td>
+                <td align='left' style="width:200px">
+                    <span style="padding-right: 30px"></span>
+                    <a class='rm_underline' href="{% url 'bulletin_board:view' bulletin.id %}">{{bulletin.title}}</a>
+                </td>
+                <td style="width:100px">{{bulletin.writeDate}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    {% else %}
+    <tbody>
+        <tr>
+            <td colspan="4">
+                <p align="center">
+                    <b><span style="font-size: 15pt;">등록된 글이 없습니다.</span></b>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    {% endif %}
+    </table>
+    <a class="rm_underline" href="{% url 'bulletin_board:new_bulletin' %}">
+	<span class="new_bulletin">글쓰기</span>
+    </a>
+</body>
+</html>

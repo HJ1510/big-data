@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>새 글</title>
+    <script>
+      function backToList(obj){
+        obj.action="{% url 'bulletin_board:index' %}"; // bulletin_board의 urls.py에서 맵핑
+        obj.submit();
+      }
+    </script>
+    <style>
+	.class-caption {
+		width:100px;
+	}
+	.class-content {
+		width:500px;
+	}
+    </style>
+</head>
+<body>
+    <!--
+    csrf 공격
+    client가 요청하면 django가 form을 넘겨주는 상황
+    중간에 가로채서 다른 내용을 넣을 수 있음
+    브라우저에서 시크릿 키를 받아서 맞는지 체크하고 업로드
+    {% csrf_token %}
+    브라우저에 시크릿 키 전달
+    -->
+    <h1 style="text-align: center">새글 쓰기</h1>
+	<form name="bulletin_form" method="post" action="{% url 'bulletin_board:insert_bulletin' %}">
+        {% csrf_token %}
+	<table border=0 align="center">
+	<tbody>
+		<tr>
+			<td align="right" class="class-caption">글제목:</td>
+			<td><input type="text" maxlength="500" name="title" class="class-content"/></td>
+		</tr>
+		<tr>
+			<td align="right" valign="top" class="class-caption"><br>글내용:</td>
+			<td><textarea name="content" rows="10" cols="65" maxlength="2000" class="class-content">
+			</textarea></td>
+		</tr>
+		<tr>
+			<td align="right" class="class-caption">작성자:</td>
+			<td><input type="text" maxlength="50" name="name" class="class-content"/></td>
+		</tr>
+        <tr>
+	<td align="right" class="class-caption">비밀번호:</td>
+	<td><input type="password" maxlength="50" name="pincode" class="class-content"/></td>
+	</tr>
+	<tr>
+		<td align="right"></td>
+		<td><input type="submit" value="글쓰기" />
+		<input type=button value="목록보기" onClick="backToList(bulletin_form)" /></td>
+	</tr>
+	</tbody>
+	</table>
+    </form>
+</body>
+</html>

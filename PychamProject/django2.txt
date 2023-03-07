@@ -1,0 +1,47 @@
+persistence api
+
+JAVA Persistence API = JPA
+
+1. SQL mapping
+ex. mybatis
+
+2. ORM Object Relational Mapping
+객체를 만들어 객체를 handling
+ex. hibenate
+
+
+django에서 schema가 변경 되는 모든 작업은 항상 ORM을 사용해야함 (단순 데이터 입력, 삭제 등은 상관없음)
+
+(web-env) PS E:\source\PychamProject\BulletinProject> history
+
+  Id CommandLine
+  -- -----------
+   1 conda activate web-env
+   2 django-admin startproject board .
+   3 ls
+   4 python manage.py startapp bulletin_board
+   5 ls
+   6 conda install -c anaconda pymysql
+   7 python manage.py migrate
+   8 python manage.py migrate
+   9 python manage.py migrate
+  10 python manage.py migrate
+
+(web-env) PS E:\source\PychamProject\BulletinProject> python .\manage.py createsuperuser
+Username (leave blank to use 'bit'): root
+Email address: abc@abc.com
+Password: 
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+
+
+(web-env) PS E:\source\PychamProject\BulletinProject> python manage.py makemigrations
+# models.py 를 참고하여 스크립트를 생성
+python manage.py migrate
+#
+python manage.py runserver
+# 서버실행

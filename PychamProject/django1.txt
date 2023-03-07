@@ -1,0 +1,44 @@
+conda activate
+conda env list
+conda create -n web-env python=3.8
+conda activate web-env
+conda install -c anaconda django=3.2
+
+pycharm에서 (위치 생각해가며)
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+새로운 크로스 플랫폼 PowerShell 사용 https://aka.ms/pscore6
+
+개인 및 시스템 프로필을 로드하는 데 827ms가 걸렸습니다.
+PS E:\source\PychamProject\BulletinProject> conda activate web-env #가상환경
+(web-env) PS E:\source\PychamProject\BulletinProject> django-admin startproject board . #위치 지정하여 생성
+
+    디렉터리: E:\source\PychamProject\BulletinProject
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2023-01-02   오전 9:23                .idea
+d-----      2023-01-02   오전 9:30                board
+-a----      2023-01-02   오전 9:30            683 manage.py
+
+
+(web-env) PS E:\source\PychamProject\BulletinProject> python manage.py startapp bulletin_board #어플리케이션 생성
+(web-env) PS E:\source\PychamProject\BulletinProject> ls
+
+
+    디렉터리: E:\source\PychamProject\BulletinProject
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2023-01-02   오전 9:23                .idea
+d-----      2023-01-02   오전 9:34                board
+d-----      2023-01-02   오전 9:34                bulletin_board
+-a----      2023-01-02   오전 9:30            683 manage.py
+
+
+(web-env) PS E:\source\PychamProject\BulletinProject> 
+

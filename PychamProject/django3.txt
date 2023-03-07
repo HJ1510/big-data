@@ -1,0 +1,8 @@
+django 
+MVT (Model, View, Template)
+
+				   MVC
+Model      		<= Model
+View			<= Controller
+Template		<= View
+

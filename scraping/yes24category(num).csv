@@ -1,4 +1,4 @@
-categoryNum,category
+book_category_num,book_category_name
 001001001,가정 살림
 001001011,건강 취미
 001001025,경제 경영
@@ -25,3 +25,4 @@ categoryNum,category
 001001003,IT 모바일
 001001044,초등참고서
 001001013,중고등참고서
+000000000, None
